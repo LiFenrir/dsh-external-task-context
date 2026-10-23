@@ -1,0 +1,4 @@
+# Inserts the external-task context inspector into the profile roster.
+- insert:
+    - id: dsh-external-task-context
+      name: '@lifenrir/dsh-external-task-context'

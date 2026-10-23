@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "External task context",
+    "description": "Inspect the delegation prompt, runtime context, and returned outcome of external subagent tasks in the right sidebar."
+  }
+}

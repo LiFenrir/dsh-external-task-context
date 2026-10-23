@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chat rectangle: the parent session's delegation record. -->
+  <rect x="3" y="4" width="14" height="11" rx="3" stroke="currentColor" stroke-width="1.6" />
+  <path d="M7 8.5h6M7 11.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+  <!-- Magnifier: inspecting the recorded context. -->
+  <circle cx="16.5" cy="15.5" r="3" stroke="currentColor" stroke-width="1.6" />
+  <path d="m18.7 17.7 2.3 2.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+</svg>
