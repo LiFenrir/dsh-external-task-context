@@ -14,6 +14,6 @@ export const inject = ['sessionProjections']
  * Register the projection on the calling context's fiber.
  * @param ctx - host context carrying the session-projection registry.
  */
-export function apply(ctx: Context): void {
-  ctx.effect(() => ctx.sessionProjections.register(externalTaskContextProjection), 'external-task-context: projection')
+export async function apply(ctx: Context): Promise<void> {
+  await ctx.sessionProjections.register(externalTaskContextProjection)
 }
