@@ -1,6 +1,6 @@
 {
   "name": "@lifenrir/dsh-external-task-context",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "在 DSH 右侧栏查看外部子代理任务（Claude Code / Codex / ACP）收到的委派提示词、运行上下文与返回结果。Inspect the delegation context and returned outcome of external subagent tasks in the DSH Web right sidebar.",
   "license": "MIT",
   "author": "LiFenrir",
@@ -37,8 +37,8 @@
     "context"
   ],
   "engines": {
-    "node": "^22.19 || >=24",
-    "dsh": ">=0.2.1-rc.2"
+    "node": ">=24.9",
+    "dsh": ">=0.2.1-rc.3"
   },
   "publishConfig": {
     "access": "public"
