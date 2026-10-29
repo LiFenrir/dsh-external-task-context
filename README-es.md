@@ -26,7 +26,7 @@ Además, la coincidencia por etiqueta solo se aplica cuando es inequívoca; se c
 
 ## Installation
 
-Requiere DSH `0.2.1-rc.2` o posterior y Node `^22.19 || >=24`.
+Requiere DSH `0.2.2-alpha.2` o posterior y Node `^22.19 || >=24`.
 
 ### Desde npm
 

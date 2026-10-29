@@ -32,7 +32,7 @@ Also:
 
 ## Installation
 
-Requires DSH `0.2.1-rc.2` or newer and Node `^22.19 || >=24`.
+Requires DSH `0.2.2-alpha.2` or newer and Node `^22.19 || >=24`.
 
 ### From npm
 

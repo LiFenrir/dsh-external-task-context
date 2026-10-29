@@ -26,7 +26,7 @@ Além disso, a correspondência por rótulo só é aplicada quando é inequívoc
 
 ## Installation
 
-Requer DSH `0.2.1-rc.2` ou mais recente e Node `^22.19 || >=24`.
+Requer DSH `0.2.2-alpha.2` ou mais recente e Node `^22.19 || >=24`.
 
 ### Via npm
 
