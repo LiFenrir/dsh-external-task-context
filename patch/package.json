@@ -1,0 +1,35 @@
+{
+  "name": "@lifenrir/dsh-external-task-context-patch",
+  "version": "0.1.0",
+  "description": "Install a run-log-capable patched @deepseek-ai/dsh-subagent-claude-code into an existing DSH profile for @lifenrir/dsh-external-task-context live logs.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "dsh-external-task-context-patch": "./install.mjs"
+  },
+  "files": [
+    "install.mjs",
+    "lib.mjs",
+    "src",
+    "README.md",
+    "README-zh.md"
+  ],
+  "dependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "scripts": {
+    "test": "node --test tests/lib.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiFenrir/dsh-external-task-context.git",
+    "directory": "patch"
+  },
+  "homepage": "https://github.com/LiFenrir/dsh-external-task-context/tree/main/patch#readme",
+  "bugs": {
+    "url": "https://github.com/LiFenrir/dsh-external-task-context/issues"
+  }
+}

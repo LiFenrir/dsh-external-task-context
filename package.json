@@ -1,7 +1,7 @@
 {
   "name": "@lifenrir/dsh-external-task-context",
-  "version": "0.1.4",
-  "description": "在 DSH 右侧栏查看外部子代理任务（Claude Code / Codex / ACP）收到的委派提示词、运行上下文与返回结果。Inspect the delegation context and returned outcome of external subagent tasks in the DSH Web right sidebar.",
+  "version": "0.2.0",
+  "description": "在 DSH 会话视图标签行查看外部子任务（Claude Code / Codex / ACP）的委派提示词、流式运行日志与返回结果。支持 dsh 0.2.2-rc.1；官方发行版需安装 patch/ 补丁包启用实时日志。Inspect delegation prompts, streamed run logs, and returned outcomes of external subagent tasks in the DSH conversation view tab row. Supports dsh 0.2.2-rc.1; official releases need the patch/ package for live logs.",
   "license": "MIT",
   "author": "LiFenrir",
   "type": "module",
@@ -16,6 +16,7 @@
   },
   "files": [
     "lib",
+    "patch",
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
@@ -38,7 +39,7 @@
   ],
   "engines": {
     "node": ">=24.9",
-    "dsh": ">=0.2.1-rc.5"
+    "dsh": ">=0.2.2-rc.1"
   },
   "publishConfig": {
     "access": "public"
@@ -57,31 +58,63 @@
     "@deepseek-ai/dsh-subagent": ">=0.1.2-rc.1 <0.2.0 || >=0.1.5-alpha.1 <0.2.0 || >=0.1.6-0 <0.2.0 || >=0.1.7-0 <0.2.0 || >=0.2.0-0 <0.3.0 || >=0.2.1-0 <0.3.0"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/cordis": { "optional": true },
-    "@deepseek-ai/dsh-client-locale": { "optional": true },
-    "@deepseek-ai/dsh-client-ui-conversation": { "optional": true },
-    "@deepseek-ai/dsh-client-ui-renderer": { "optional": true },
-    "@deepseek-ai/dsh-client-ui-session": { "optional": true },
-    "@deepseek-ai/dsh-client-ui-sidebar-right": { "optional": true },
-    "@deepseek-ai/dsh-client-ui-slots": { "optional": true },
-    "@deepseek-ai/dsh-llm": { "optional": true },
-    "@deepseek-ai/dsh-session": { "optional": true },
-    "@deepseek-ai/dsh-session-projection": { "optional": true },
-    "@deepseek-ai/dsh-subagent": { "optional": true }
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-locale": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-conversation": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-renderer": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-session": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-sidebar-right": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session-projection": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-subagent": {
+      "optional": true
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LiFenrir/dsh-external-task-context.git"
   },
   "homepage": "https://github.com/LiFenrir/dsh-external-task-context#readme",
-  "bugs": "https://github.com/LiFenrir/dsh-external-task-context/issues",
+  "bugs": {
+    "url": "https://github.com/LiFenrir/dsh-external-task-context/issues"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
     "client": {
       "platform": "web",
-      "inject": []
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
     }
   },
   "scripts": {

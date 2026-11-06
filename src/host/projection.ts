@@ -4,7 +4,7 @@
  * External providers (Claude Code, Codex, ACP) run out of process, so the
  * child has no local Session and no transcript. The parent log still records
  * everything this plugin shows: the delegation `tool/call`, the external
- * `subagent/catalog` v2 entry that introduces the child id, and the later
+ * `subagent/catalog` entry that introduces the child id, and the later
  * `subagent-settled` notice carrying the terminal summary and closing text.
  * The fold reads only those existing events.
  *
@@ -168,7 +168,7 @@ function foldCatalog(
   event: SessionEvent<'subagent/catalog'>,
 ): ExternalTaskContextState {
   const data = event.data
-  if (data.version !== 2 || data.mode !== 'external') return state
+  if ((data.version !== 2 && data.version !== 3) || data.mode !== 'external') return state
   if (state.tasks.some(task => task.id === data.childId)) return state
 
   const pending = takePending(state.pending, data.label)
@@ -416,5 +416,5 @@ export const externalTaskContextProjection: ExternalTaskProjection = {
     viewSchema: viewSchema as unknown as NonNullable<ExternalTaskProjectionDefinition['wire']>['viewSchema'],
     view: viewExternalTaskContexts,
   },
-  stateVersion: 1,
+  stateVersion: 2,
 }

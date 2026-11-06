@@ -108,6 +108,39 @@ test('records prompt, context, and options from tool/call plus catalog v2', () =
   assert.equal(state.pending.length, 0)
 })
 
+test('pairs a catalog v3 external entry with a pending delegation', () => {
+  const withCall = applyExternalTaskEvent(initialState(0), toolCall(0, 1000, {
+    description: 'Implement prompt rewrite',
+    prompt: 'Rewrite the delegation prompt.',
+  }))
+  const state = applyExternalTaskEvent(withCall, catalog(1, 1100, {
+    version: 3,
+    mode: 'external',
+    label: 'Implement prompt rewrite',
+    name: 'agent-1',
+  }))
+  const tasks = viewExternalTaskContexts(state)
+
+  assert.equal(tasks.length, 1)
+  const task = tasks[0]!
+  assert.equal(task.label, 'Implement prompt rewrite')
+  assert.equal(task.prompt, 'Rewrite the delegation prompt.')
+  assert.equal(task.status, 'pending')
+  assert.equal(state.pending.length, 0)
+})
+
+test('ignores continuable catalog v3 entries', () => {
+  const empty = initialState(0)
+  const continuable = applyExternalTaskEvent(empty, catalog(0, 1000, {
+    version: 3,
+    mode: 'continuable',
+    label: 'Local task',
+    name: 'agent-1',
+  }))
+
+  assert.equal(continuable, empty)
+})
+
 test('ignores local one-shot and continuable catalog entries', () => {
   const empty = initialState(0)
   const oneShot = applyExternalTaskEvent(empty, catalog(0, 1000, {

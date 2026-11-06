@@ -27,6 +27,9 @@ await build({
   format: 'esm',
   platform: 'neutral',
   target: 'es2022',
+  // Neutral builds do not externalize Node built-ins automatically; the host
+  // half reads the provider log directory with `node:fs`.
+  external: ['node:*'],
   outfile: join(LIB, 'index.js'),
   logLevel: 'warning',
 })
@@ -38,7 +41,11 @@ const client = await build({
   platform: 'browser',
   target: 'es2022',
   jsx: 'automatic',
-  external: ['react', 'react/jsx-runtime'],
+  external: [
+    'react',
+    'react/jsx-runtime',
+    '@deepseek-ai/dsh-client-ui-primitives',
+  ],
   sourcemap: false,
   write: false,
   logLevel: 'warning',
